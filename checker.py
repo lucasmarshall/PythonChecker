@@ -70,7 +70,7 @@ def get_external(source, filename, executable):
     tf.write(source.encode('utf-8'))
     tf.close()
     try:
-        output = subprocess.check_output([executable,
+        output = subprocess.check_output([os.path.expandvars(executable),
                                           os.path.dirname(__file__),
                                           tf.name, filename])
     finally:
